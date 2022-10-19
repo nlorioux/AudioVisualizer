@@ -5,15 +5,22 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <fftw3.h>
+#include <string>
+using namespace std;
+
+void fft(fftw_complex* in, fftw_complex* out, int N);
+void displayFFT(fftw_complex* fft, int N);
 
 int main(int argc, char** argv)
 {
+    string audio_file = "Glass_Caves_Who_Are_You.wav";
+
     sf::RenderWindow window(sf::VideoMode(600, 600), "SFML WORK !");
     sf::Music music;
-    if (!music.openFromFile("Glass_Caves_Who_Are_You.wav"))
+    if (!music.openFromFile(audio_file))
         return -1; // error
     music.play();
-
+    /*
     while (window.isOpen()) {
 
         sf::Event event;
@@ -28,14 +35,40 @@ int main(int argc, char** argv)
 
         window.clear();
         window.display();
-    }
+    }*/
 
     const int chunkSize = 3200;
     fftw_complex input[chunkSize]; // double x[n][2];
     fftw_complex output[chunkSize];
 
+    //Fill batch of audio
+    /*
+    for (int i = 0; i < chunkSize; i++) {
+        input[i][0] = 
+    }*/
+
+
+    fft(input, output, chunkSize);
+    displayFFT(output, chunkSize);
+
     return 0;
 }
+
+void fft(fftw_complex* in, fftw_complex* out, int N) {
+    //create a DFT plan and execute it
+    fftw_plan plan = fftw_plan_dft_1d(N, in, out, FFTW_FORWARD, FFTW_ESTIMATE);
+    fftw_execute(plan);
+    //clean
+    fftw_destroy_plan(plan);
+    fftw_cleanup();
+}
+
+void displayFFT(fftw_complex* fft, int N) {
+    for (int i = 0; i < N; i++) {
+        cout << fft[i][0] << " | " << fft[i][1] << endl;
+    }
+}
+
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
 // Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
