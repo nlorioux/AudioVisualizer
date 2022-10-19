@@ -4,6 +4,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <fftw3.h>
 
 int main(int argc, char** argv)
 {
@@ -28,6 +29,10 @@ int main(int argc, char** argv)
         window.clear();
         window.display();
     }
+
+    const int chunkSize = 3200;
+    fftw_complex input[chunkSize]; // double x[n][2];
+    fftw_complex output[chunkSize];
 
     return 0;
 }
