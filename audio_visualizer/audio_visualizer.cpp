@@ -6,6 +6,7 @@
 #include <SFML/Audio.hpp>
 #include <fftw3.h>
 #include <string>
+#include "Audio.h"
 using namespace std;
 
 void fft(fftw_complex* in, fftw_complex* out, int N);
@@ -13,7 +14,8 @@ void displayFFT(fftw_complex* fft, int N);
 
 int main(int argc, char** argv)
 {
-    string audio_file = "Glass_Caves_Who_Are_You.wav";
+    const string audio_file = "Glass_Caves_Who_Are_You.wav";
+    Audio audio = Audio(audio_file);
 
     sf::RenderWindow window(sf::VideoMode(600, 600), "SFML WORK !");
     sf::Music music;
@@ -37,19 +39,31 @@ int main(int argc, char** argv)
         window.display();
     }*/
 
-    const int chunkSize = 3200;
-    fftw_complex input[chunkSize]; // double x[n][2];
-    fftw_complex output[chunkSize];
+    const int batchSize = 10000;
+    fftw_complex input[batchSize]; // double x[n][2];
+    fftw_complex output[batchSize];
+    float totalNumberBatch = audio.getSamplesCount() / batchSize;
+    sf::Time batchDuration = audio.getDuration() / totalNumberBatch;
+    cout << "totalNumberBatch :" << totalNumberBatch << endl;
 
-    //Fill batch of audio
-    /*
-    for (int i = 0; i < chunkSize; i++) {
-        input[i][0] = 
-    }*/
+    for (int batchNumber = 0; batchNumber < totalNumberBatch; batchNumber++) {
+        //Fill batch of audio
+        for (int i = 0; i < batchSize; i++) {
+            input[i][0] = audio.getSamples()[batchNumber + i];
+            input[i][1] = 0;
+            //cout << "Input : " << input[i][0] << endl;
+        }
 
+        /*
+        for (int i = 0; i < audio.getSamplesCount(); i++) {
+            cout << audio.getSamples()[i];
+        }*/
 
-    fft(input, output, chunkSize);
-    displayFFT(output, chunkSize);
+        fft(input, output, batchSize);
+        cout << "fft_ok" << endl;
+        sf::sleep(batchDuration);
+    }
+    displayFFT(output, batchSize);
 
     return 0;
 }
@@ -65,7 +79,7 @@ void fft(fftw_complex* in, fftw_complex* out, int N) {
 
 void displayFFT(fftw_complex* fft, int N) {
     for (int i = 0; i < N; i++) {
-        cout << fft[i][0] << " | " << fft[i][1] << endl;
+        //cout << fft[i][0] << " | " << fft[i][1] << endl;
     }
 }
 

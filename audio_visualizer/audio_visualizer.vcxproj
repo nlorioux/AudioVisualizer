@@ -152,9 +152,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="audio_visualizer.cpp" />
+    <ClCompile Include="Audio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Glass_Caves_Who_Are_You.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Audio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
