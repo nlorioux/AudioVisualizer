@@ -26,6 +26,15 @@
     <Media Include="Glass_Caves_Who_Are_You.wav">
       <Filter>Fichiers sources</Filter>
     </Media>
+    <Media Include="BEEP.wav">
+      <Filter>Fichiers sources</Filter>
+    </Media>
+    <Media Include="Nyan-Cat.wav">
+      <Filter>Fichiers sources</Filter>
+    </Media>
+    <Media Include="bip_fft.wav">
+      <Filter>Fichiers sources</Filter>
+    </Media>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
