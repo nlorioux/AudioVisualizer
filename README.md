@@ -2,7 +2,7 @@
 
 Currently in developpment. This is a school project. 
 <br />
-The aim of this project is to develop an application that allows to visualize caracteristics of a music with OpenGL. The visaulization has to be synchronised with the music.
+The aim of this project is to develop an application that allows to visualize caracteristics of a music with OpenGL. The visualization has to be synchronised with the music.
 
 ## Libraries
 
