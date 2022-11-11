@@ -88,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Eleve\SFML-2.5.1\include;$(ProjectDir)fftw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\SFML-2.5.1\include;$(ProjectDir)fftw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Eleve\SFML-2.5.1\lib;$(ProjectDir)fftw\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Dev\SFML-2.5.1\lib;$(ProjectDir)fftw\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;user32.lib;advapi32.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-network-s-d.lib;ws2_32.lib;libfftw3-3.lib;glu32.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Eleve\SFML-2.5.1\include;$(ProjectDir)fftw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\SFML-2.5.1\include;$(ProjectDir)fftw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,7 +116,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>sfml-window-s.lib;sfml-graphics-s.lib;sfml-system-s.lib;sfml-audio-s.lib;user32.lib;advapi32.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-network-s.lib;ws2_32.lib;libfftw3-3.lib;glu32.lib;opengl32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Eleve\SFML-2.5.1\lib;$(ProjectDir)fftw\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Dev\SFML-2.5.1\lib;$(ProjectDir)fftw\lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /d /y "$(ProjectDir)fftw\bin\*.*" "$(TargetDir)"</Command>
@@ -126,12 +126,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Dev\SFML-2.5.1\include;C:\Users\ux533fd\Documents\P1RV\AudioVisualizer\audio_visualizer\fftw\include;%(AdditionalIncludeDirectories);C:\Users\ux533fd\Documents\P1RV\AudioVisualizer\audio_visualizer\fftw\include;C:\Dev\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\ux533fd\Documents\P1RV\AudioVisualizer\audio_visualizer\fftw\lib;C:\Dev\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;user32.lib;advapi32.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-network-s-d.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,12 +145,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Dev\SFML-2.5.1\include;C:\Users\ux533fd\Documents\P1RV\AudioVisualizer\audio_visualizer\fftw\include;;C:\Users\ux533fd\Documents\P1RV\AudioVisualizer\audio_visualizer\fftw\include;C:\Dev\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-window-s.lib;sfml-graphics-s.lib;sfml-system-s.lib;sfml-audio-s.lib;user32.lib;advapi32.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-network-s.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\ux533fd\Documents\P1RV\AudioVisualizer\audio_visualizer\fftw\lib;C:\Dev\SFML-2.5.1\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
