@@ -10,8 +10,9 @@
 #include <GL/gl.h>
 using namespace std;
 
+#include "circle.h"
+
 void fft(fftw_complex* in, fftw_complex* out, int N);
-void displayFFT(fftw_complex* fft, int N);
 void initGL();
 
 /* Display fft curve with openGL
@@ -38,8 +39,10 @@ int main(int argc, char** argv)
 {
     //const string audio_file = "Glass_Caves_Who_Are_You.wav";
     //const string audio_file = "BEEP.wav";
-    const string audio_file = "Nyan-Cat.wav";
+    //const string audio_file = "Nyan-Cat.wav";
     //const string audio_file = "bip_fft.wav";
+    const string audio_file = "bass.wav";
+
     Audio audio = Audio(audio_file);
     sf::Clock clock;
 
@@ -136,7 +139,7 @@ int main(int argc, char** argv)
 
         glEnable(GL_TEXTURE_2D);
 
-        affichage(summedPower, barTotalNumber);
+        affichageCircle(summedPower, barTotalNumber);
         
         // Play music
         if (first) {

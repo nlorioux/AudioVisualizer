@@ -21,6 +21,9 @@
     <ClCompile Include="Audio.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="circle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Glass_Caves_Who_Are_You.wav">
@@ -37,8 +40,11 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="circle.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
     <ClInclude Include="Audio.h">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

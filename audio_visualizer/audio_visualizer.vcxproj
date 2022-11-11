@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="audio_visualizer.cpp" />
     <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="circle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="BEEP.wav" />
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="circle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
