@@ -88,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Eleve\SFML-2.5.1\include;$(ProjectDir)fftw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\User\SFML-2.5.1\include;$(ProjectDir)fftw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Eleve\SFML-2.5.1\lib;$(ProjectDir)fftw\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\User\SFML-2.5.1\lib;$(ProjectDir)fftw\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;user32.lib;advapi32.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-network-s-d.lib;ws2_32.lib;libfftw3-3.lib;glu32.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -154,6 +154,7 @@
     <ClCompile Include="audio_visualizer.cpp" />
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="circle.cpp" />
+    <ClCompile Include="sphere.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="BEEP.wav" />
@@ -164,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="Audio.h" />
     <ClInclude Include="circle.h" />
+    <ClInclude Include="sphere.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

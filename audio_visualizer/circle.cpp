@@ -1,9 +1,10 @@
 #include "circle.h"
 
-GLvoid affichageCircle(float magnitude[30], int size) {
+// Displays the full circle
+GLvoid affichageCircle(float magnitude[50], int size) {
     glClear(GL_COLOR_BUFFER_BIT);
 
-    float indent = M_PI/size;
+    float indent = 2*M_PI/size;
     float angle = M_PI/2;
     float innerRadius = 0.2;
     float torRadius = 1.0 - innerRadius;
@@ -13,13 +14,13 @@ GLvoid affichageCircle(float magnitude[30], int size) {
     glBegin(GL_LINE_STRIP);
 
     // First half of the circle
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size/2; i++) {
         glVertex2f(centerX + cos(angle) * (innerRadius + (torRadius * magnitude[i])), centerY + sin(angle) * (innerRadius + (torRadius * magnitude[i])));
         angle += indent;
     }
 
     // Second half of the circle : mirror of the first
-    for (int i = size-1; i >=0 ; i--) {
+    for (int i = size/2-1; i >=0 ; i--) {
         glVertex2f(centerX + cos(angle) * (innerRadius + (torRadius * magnitude[i])), centerY + sin(angle) * (innerRadius + (torRadius * magnitude[i])));
         angle += indent;
     }

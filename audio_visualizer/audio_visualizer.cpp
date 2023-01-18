@@ -11,13 +11,14 @@
 using namespace std;
 
 #include "circle.h"
+#include "sphere.h"
 
 void fft(fftw_complex* in, fftw_complex* out, int N);
 void initGL();
 
 /* Display fft curve with openGL
 */
-GLvoid affichage(float magnitude[30], int size) {
+GLvoid affichage(float magnitude[15], int size) {
     glClear(GL_COLOR_BUFFER_BIT);
 
     float gap = 1;
@@ -37,6 +38,7 @@ GLvoid affichage(float magnitude[30], int size) {
 
 int main(int argc, char** argv)
 {
+    // The different available musics
     //const string audio_file = "Glass_Caves_Who_Are_You.wav";
     //const string audio_file = "BEEP.wav";
     //const string audio_file = "Nyan-Cat.wav";
@@ -50,7 +52,7 @@ int main(int argc, char** argv)
     if (!music.openFromFile(audio_file))
         return -1; // error
     cout << "SampleRate : " << music.getSampleRate() << endl;
-    music.play();
+    music.play(); //------------------------------------------------------------ TO PLAY MUSIC
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "OpenGL");
     window.setVerticalSyncEnabled(true);
@@ -84,14 +86,19 @@ int main(int argc, char** argv)
     float totalNumberBatch = audio.getSamplesCount() / batchSize;
     sf::Time batchDuration = audio.getDuration() / totalNumberBatch;
     vector<int> power;
-    const int barTotalNumber = 100;
-    float summedPower[100];
+    const int barTotalNumber = 50;
+    float summedPower[50];
+
+    // Setup the perspective projection
+    initSphere(window);
 
     //Main calcul Loop
     bool first = true;
-    float maxChunkFreq = 1;
+
+    float maxGlobalFreq = 1;
 
     for (int batchNumber = 0; batchNumber < totalNumberBatch; batchNumber++) {
+        float maxChunkFreq = 1;
         //Fill batch of audio
         for (int i = 0; i < batchSize && i + batchNumber * batchSize < audio.getSamplesCount(); i++) {
             input[i][0] = audio.getSamples()[batchNumber * batchSize + i];
@@ -119,10 +126,14 @@ int main(int argc, char** argv)
             if (summedPower[i] > maxChunkFreq) {
                 maxChunkFreq = summedPower[i];
             }
+            if (maxChunkFreq > maxGlobalFreq) {
+                maxGlobalFreq = maxChunkFreq;
+            }
         }
         for (int i = 0; i < barTotalNumber; i++) {
-            summedPower[i] = (float)summedPower[i] / maxChunkFreq;
+            summedPower[i] = (float)summedPower[i] / maxGlobalFreq;
         }
+        cout << maxGlobalFreq << endl;
 
         // Make the window the active window for OpenGL calls
         if (!window.setActive(true))
@@ -139,11 +150,15 @@ int main(int argc, char** argv)
 
         glEnable(GL_TEXTURE_2D);
 
-        affichageCircle(summedPower, barTotalNumber);
+        // The different available representations
+        //affichage(summedPower, barTotalNumber);
+        //affichageSphere(summedPower, barTotalNumber);
+        affichageSphere(summedPower, barTotalNumber, maxChunkFreq);
+        //affichageCircle(summedPower, barTotalNumber);
         
         // Play music
         if (first) {
-            music.play();
+            music.play(); //------------------------------------------------------------ TO PLAY MUSIC
             first = false;
         }
 
