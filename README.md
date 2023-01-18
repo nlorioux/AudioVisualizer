@@ -9,3 +9,5 @@ The aim of this project is to develop an application that allows to visualize ca
 We used those libraries : 
   - SFML to play the song and manage windows.
   - fftw to analyse the music.
+  - OpenGL to display the visualization.
+  - glext to have access to OpenGL 3.
